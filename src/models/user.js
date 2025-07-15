@@ -48,7 +48,7 @@ const userSchema = new mongoose.Schema({
     },
     photoUrl: {
         type: String,
-        default: "https://www.pnrao.com/wp-content/uploads/2023/06/dummy-user-male.jpg",
+        default: "https://m.media-amazon.com/images/M/MV5BMmRlNmI5YWEtMjA5OC00NGM4LWJjMGUtZjU0NmI2MzRlOGNhXkEyXkFqcGc@._V1_.jpg",
         validate(value) {
         if (!validator.isURL(value)) {
             throw new Error("invaild photo URL:" + value);
