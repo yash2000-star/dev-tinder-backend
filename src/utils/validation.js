@@ -13,9 +13,7 @@
     else if (!validator.isStrongPassword(password)) {
         throw new Error("Password should be atleast 6 characters long.");
     } 
-    else if (!age || age < 18) {
-        throw new Error("Age must be at least 18.");
-    } else if (gender && !["male", "female", "other"].includes(gender.toLowerCase())) {
+     else if (gender && !["male", "female", "other"].includes(gender.toLowerCase())) {
         throw new Error("Gender must be 'male', 'female', or 'other'.");
     }
  };
@@ -28,7 +26,8 @@
         "about", 
         "skills", 
          "age", 
-        "photoUrl"
+        "photoUrl",
+        "gender"
     ];
 
     const isEditAllowed = Object.keys(req.body).every((field) => 

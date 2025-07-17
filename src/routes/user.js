@@ -8,6 +8,20 @@ const User = require("../models/user")
 const USER_SAFE_DATA = "firstName lastName photoUrl age gender about skills";
 
 // Get all the pending request for the loggedIn user
+userRouter.get("/get-user-by-id/:userId", userAuth, async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const user = await User.findById(userId).select("-password");
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.status(200).json({ data: user });
+    } catch (err) {
+        console.error("Error in /get-user-by-id:", err.message);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
 userRouter.get("/user/requests/received", userAuth, async (req, res) => {
     try {
         const loggedInUser = req.user;

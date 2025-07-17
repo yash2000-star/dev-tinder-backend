@@ -35,4 +35,14 @@ Status: Ignore, Intrested, accepeted, rejected
 
 
 
-d
+# Deployment 
+
+- Backend 
+        - allowed ec2 instance public ip on mongo db server 
+        - installed pm2 = npm install pm2 -g
+        - pm2 start npm -- start
+        - pm2 logs 
+        - pm2 list, pm2 flush, <name>, pm2 stop, pm2 delete <name>
+
+
+asasas
