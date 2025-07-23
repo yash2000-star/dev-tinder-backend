@@ -46,6 +46,13 @@ const userSchema = new mongoose.Schema({
             }
         },
     },
+    isPremium: {
+        type: Boolean,
+        default: false,
+    },
+    membershipType: {
+        type: String,
+    },
     photoUrl: {
         type: String,
         default: "https://m.media-amazon.com/images/M/MV5BMmRlNmI5YWEtMjA5OC00NGM4LWJjMGUtZjU0NmI2MzRlOGNhXkEyXkFqcGc@._V1_.jpg",
