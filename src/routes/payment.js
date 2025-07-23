@@ -91,4 +91,12 @@ return res.status(200).json({ msg: "Webhook received successfully" });
   }
 });
 
+paymentRouter.get("/premium/verify", userAuth, async (req, res) => {
+  const user = req.user;
+  if (user.isPremium) {
+    return res.status(200).json({ msg: "User is premium", user });
+  }
+  return res.status(401).json({ msg: "User is not premium", user });
+})
+
 module.exports = paymentRouter;
