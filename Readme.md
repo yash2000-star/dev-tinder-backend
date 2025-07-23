@@ -47,4 +47,6 @@ Status: Ignore, Intrested, accepeted, rejected
         - pm2 list, pm2 flush, <name>, pm2 stop, pm2 delete <name>
 
 
-asas
+/etc/nginx/sites-available/default
+
+asasas
