@@ -53,17 +53,8 @@ userRouter.get("/user/connections", userAuth, async (req, res) => {
       .populate("fromUserId", USER_SAFE_DATA)
       .populate("toUserId", USER_SAFE_DATA);
 
-    const connections = connectionRequests.map((request) => {
-      // Return the user that is NOT the logged-in user
-      const fromUser = request.fromUserId;
-      const toUser = request.toUserId;
+    res.json({ data: connectionRequests });
 
-      return fromUser._id.toString() === loggedInUser._id.toString()
-        ? toUser
-        : fromUser;
-    });
-
-    res.json({ data: connections });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
