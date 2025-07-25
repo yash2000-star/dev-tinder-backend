@@ -54,4 +54,4 @@ socket.io documentation
 TODO: show green symbol when online last seen , show profile picture, show profile name, show profile bio, show profile location, show profile
 limit msg on api call if i scroll 10 msg load 10 msg at a time 
 
-asasaasasas
+asasasas
