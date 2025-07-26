@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const cors = require("cors")
 const http = require("http");
-const path = require('path');
+
 
 require("dotenv").config();
 
@@ -45,13 +45,6 @@ app.use("/", chatRouter);
 
 const server = http.createServer(app);
 initializeSocket(server);
-
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-// For all other routes, serve index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-});
 
 connectDB()
 .then(() => {
