@@ -7,13 +7,25 @@ const http = require("http");
 
 require("dotenv").config();
 
+const allowedOrigins = [
+    "http://localhost:5173",            
+    "https://devtinder.yashwant.xyz"   
+];
+
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('The CORS policy for this site does not allow access from the specified Origin.'));
+        }
+    },
     credentials: true,
 }));
+
+// --- The rest of your file remains the same ---
 app.use(express.json());
 app.use(cookieParser());
-
 
 const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
@@ -44,4 +56,3 @@ connectDB()
     console.log("Databse cannot be connected!!");
     console.error(err);
 })
-
